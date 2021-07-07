@@ -16,8 +16,6 @@
 		527A27492694460400FB84D0 /* BaseModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 527A27472694460400FB84D0 /* BaseModel.xcdatamodeld */; };
 		527A274C2694507100FB84D0 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527A274B2694507100FB84D0 /* DBHelper.swift */; };
 		527A274F2694836000FB84D0 /* PersonalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527A274E2694836000FB84D0 /* PersonalTableViewController.swift */; };
-		527A2756269483E700FB84D0 /* PersonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527A2755269483E700FB84D0 /* PersonModel.swift */; };
-		527A27592694840600FB84D0 /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527A27582694840600FB84D0 /* AddressModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,8 +30,6 @@
 		527A27482694460400FB84D0 /* BaseModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BaseModel.xcdatamodel; sourceTree = "<group>"; };
 		527A274B2694507100FB84D0 /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		527A274E2694836000FB84D0 /* PersonalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalTableViewController.swift; sourceTree = "<group>"; };
-		527A2755269483E700FB84D0 /* PersonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonModel.swift; sourceTree = "<group>"; };
-		527A27582694840600FB84D0 /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +72,6 @@
 				527A27472694460400FB84D0 /* BaseModel.xcdatamodeld */,
 				527A274B2694507100FB84D0 /* DBHelper.swift */,
 				527A274E2694836000FB84D0 /* PersonalTableViewController.swift */,
-				527A2755269483E700FB84D0 /* PersonModel.swift */,
-				527A27582694840600FB84D0 /* AddressModel.swift */,
 			);
 			path = CoreDataProject;
 			sourceTree = "<group>";
@@ -153,10 +147,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				527A27372694453200FB84D0 /* ViewController.swift in Sources */,
-				527A2756269483E700FB84D0 /* PersonModel.swift in Sources */,
 				527A274F2694836000FB84D0 /* PersonalTableViewController.swift in Sources */,
 				527A27332694453200FB84D0 /* AppDelegate.swift in Sources */,
-				527A27592694840600FB84D0 /* AddressModel.swift in Sources */,
 				527A274C2694507100FB84D0 /* DBHelper.swift in Sources */,
 				527A27492694460400FB84D0 /* BaseModel.xcdatamodeld in Sources */,
 				527A27352694453200FB84D0 /* SceneDelegate.swift in Sources */,

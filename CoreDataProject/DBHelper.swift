@@ -40,8 +40,7 @@ class DBHelper{
     //Create object model in context and optional return
     func createObjectModel(entityName : String , values : [String : Any]) -> NSManagedObject?{
         var returnValue : NSManagedObject? = nil
-        managedContext.performAndWait {
-            
+        
             if let entityDesc = NSEntityDescription.entity(forEntityName: entityName, in: managedContext){
                 
                 let objectModel = NSManagedObject(entity: entityDesc, insertInto: managedContext)
@@ -50,7 +49,6 @@ class DBHelper{
                     objectModel.setValue(value.value, forKey: value.key)
                 }
                 
-                print(managedContext.insertedObjects)
                 //managedContext.delete(objectModel)
                 //managedContext.refreshAllObjects()
                 returnValue = objectModel
@@ -60,7 +58,7 @@ class DBHelper{
                 returnValue = nil
             }
             
-        }
+        
         return returnValue
         
     }
@@ -70,14 +68,54 @@ class DBHelper{
         return personModel
     }
     
-    //Save context current state
+    //Save context current state in background thread
     func saveObjects(){
         
-        managedContext.performAndWait {
+        persistentContainer.performBackgroundTask { [weak self](context) in
+           
             do{
-                try managedContext.save()
+                try self?.managedContext.save()
             }catch{
-                print(error)
+                print("Save Error")
+            }
+        }
+       
+    }
+    
+    func getAllObjects(completion : @escaping ([NSManagedObject]?) -> Void){
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Person")
+        
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        persistentContainer.performBackgroundTask { [weak self] (context) in
+            do{
+                let result = try self?.managedContext.fetch(fetchRequest) as! [NSManagedObject]
+                
+                DispatchQueue.main.async {
+                    completion(result)
+                }
+               
+            }catch{
+                print("catch error")
+            }
+            
+        }
+        
+      
+    }
+    
+    func deleteObject(object : NSManagedObject){
+        
+        persistentContainer.performBackgroundTask { [weak self] (context) in
+            
+            self?.managedContext.delete(object)
+            
+            do{
+                try context.save()
+            }catch{
+                print("Save Error")
             }
         }
         

@@ -20,6 +20,8 @@ class ViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(saveComplete), name: .NSManagedObjectContextDidSave, object: nil)
         
+        
+        
     }
 
     @objc private func saveComplete(){
@@ -27,7 +29,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func action(_ sender : Any){
-        
+        print(Thread.isMainThread)
         guard nameText.text != "" else{
             print("Fill all fields")
             return
@@ -57,7 +59,7 @@ class ViewController: UIViewController {
         print(personObject)
         print(adrObject)
         print("***************************************")
-        print(DBHelper.sharedStore.managedContext.insertedObjects)
+        //print(DBHelper.sharedStore.managedContext.insertedObjects)
         
         DBHelper.sharedStore.saveObjects()
     }
